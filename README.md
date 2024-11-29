@@ -1,2 +1,2 @@
-# intelehealth-path-doctor-ui-api
-Repository for Path Doctor UI Api
+# intelehealth-fhir-doctor-ui-api
+Repository for FHIR Doctor UI Api
