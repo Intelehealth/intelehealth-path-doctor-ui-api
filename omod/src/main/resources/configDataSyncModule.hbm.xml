@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="org.openmrs.module.doctor.ui.api" >
+
+	<class name="ConfigDataSyncModule" table="config_data_sync_module" abstract="true">
+	
+		<id name="id" type="int" column="id" unsaved-value="0">
+			<generator class="native">
+				<param name="sequence">config_fcility_id_seq</param>
+			</generator>
+		</id>		
+	 	
+		<property name="name" column="name" type="string" />
+		<property name="processId" column="process_id" type="string" />
+		<property name="status" column="status" type="boolean" />
+		
+		
+		<property name="dateCreated" column="date_created" type="java.util.Date" not-null="true"/>
+		<many-to-one name="creator" column ="creator" class="org.openmrs.User" not-null="true"/>
+		<many-to-one name="changedBy" column="changed_by" class="org.openmrs.User" />
+		<property name="dateChanged" column="date_changed" type="java.util.Date" />
+		<property name="voided" column="voided" type="boolean" not-null="true"/>
+		<many-to-one name="voidedBy" column="voided_by" class="org.openmrs.User" />
+		<property name="dateVoided" column="date_voided" type="java.util.Date" />
+		<property name="voidReason" column="void_reason" type="java.lang.String" /> 
+		<property name="uuid" column="uuid" type="java.lang.String" not-null="true" />
+		
+	</class>
+	
+	
+</hibernate-mapping>
